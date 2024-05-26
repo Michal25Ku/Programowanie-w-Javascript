@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="Num"/>
+    <input type="text" class="Num"/>
+    <input type="text" class="Num"/>
+
+    <button class="AddField">Dodaj pole</button>
+    <button class="Calculate">Przelicz</button>
+
+    <p class="Sum"></p>
+    <p class="Avg"></p>
+    <p class="Min"></p>
+    <p class="Max"></p>
+
+    <script>
+        document.querySelector('.AddField').addEventListener('click', () => 
+        {
+            let inputField = document.createElement('input')
+            inputField.type = 'text'
+            inputField.className = 'Num'
+            document.body.insertBefore(inputField, document.querySelector('.AddField'))
+        })
+
+        document.querySelector('.Calculate').addEventListener('click', () => 
+        {
+            let numberFields = document.querySelectorAll('.Num')
+            let numbers = []
+
+            numberFields.forEach(field => 
+            {
+                let value = parseFloat(field.value)
+                if(!isNaN(value))
+                {
+                    numbers.push(value)
+                }
+                else
+                {
+                    field.remove()
+                }
+            })
+
+            let sum = numbers.reduce((a, b) => a + b, 0)
+            let avg = sum/numbers.length
+            let min = Math.min(...numbers)
+            let max = Math.max(...numbers)
+
+            document.querySelector('.Sum').textContent = 'Sum: ' + sum;
+            document.querySelector('.Avg').textContent = 'Avg: ' + avg;
+            document.querySelector('.Min').textContent = 'Min: ' + min;
+            document.querySelector('.Max').textContent = 'Max: ' + max;
+        })
+    </script>
+</body>
+</html>

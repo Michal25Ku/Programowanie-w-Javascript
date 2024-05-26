@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="Num1"/>
+    <input type="text" class="Num2"/>
+    <input type="text" class="Num3"/>
+    <input type="text" class="Num4"/>
+
+    <p class="Sum"></p>
+    <p class="Avg"></p>
+    <p class="Min"></p>
+    <p class="Max"></p>
+
+    <script>
+        function calculateValue()
+        {
+            let num1 = parseFloat(document.querySelector('.Num1').value) || 0
+            let num2 = parseFloat(document.querySelector('.Num2').value) || 0
+            let num3 = parseFloat(document.querySelector('.Num3').value) || 0
+            let num4 = parseFloat(document.querySelector('.Num4').value) || 0
+
+            let numbers = [num1, num2, num3, num4]
+
+            let sum = numbers.reduce((a, b) => a + b, 0)
+            let avg = sum/numbers.length
+            let min = Math.min(...numbers)
+            let max = Math.max(...numbers)
+
+            document.querySelector('.Sum').textContent = 'Sum: ' + sum;
+            document.querySelector('.Avg').textContent = 'Avg: ' + avg;
+            document.querySelector('.Min').textContent = 'Min: ' + min;
+            document.querySelector('.Max').textContent = 'Max: ' + max;
+        }
+
+        document.querySelectorAll('input').forEach(input => (addEventListener('input', calculateValue)))
+    </script>
+</body>
+</html>
