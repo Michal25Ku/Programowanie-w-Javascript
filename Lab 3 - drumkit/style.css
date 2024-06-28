@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #333;
+    color: white;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.keys {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.key {
+    border: 1px solid #fff;
+    padding: 20px;
+    margin: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s ease;
+}
+
+.key:active {
+    transform: scale(0.95);
+    background: #555;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
