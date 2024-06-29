@@ -7,7 +7,7 @@ const anim = () =>
   box.style.transform = `translateX(-${currentIndex * 800}px)`
   dots.forEach((dot, index) =>
     {
-        dot.classList.toggle('active'. index === currentIndex)
+        dot.classList.toggle('active', index === currentIndex)
     })
 }
 
@@ -23,8 +23,10 @@ document.querySelector('.Next').addEventListener('click', () =>
     anim()
 })
 
-dots.forEach(dot => {
-    dot.addEventListener('click', () => {
+dots.forEach(dot => 
+{
+    dot.addEventListener('click', () => 
+    {
         currentIndex = parseInt(dot.getAttribute('data-index'));
         anim();
     });
