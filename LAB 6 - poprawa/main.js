@@ -41,11 +41,11 @@ function drawHoles()
 {
     holes.forEach(hole => 
     {
-        context.beginPath();
-        context.arc(hole.x, hole.y, holeRadius, 0, Math.PI * 2);
-        context.fillStyle = 'Black';
-        context.fill();
-        context.closePath();
+        context.beginPath()
+        context.arc(hole.x, hole.y, holeRadius, 0, Math.PI * 2)
+        context.fillStyle = 'Black'
+        context.fill()
+        context.closePath()
     });
 }
 
