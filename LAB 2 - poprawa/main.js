@@ -1,8 +1,8 @@
 const box = document.querySelector('.box')
 const dots = document.querySelectorAll('.dot')
-let currentIndex = 0;
-let isPaused = false;
-let sliderInterval;
+let currentIndex = 0
+let isPaused = false
+let sliderInterval
 
 const anim = () => 
 {
@@ -30,8 +30,8 @@ dots.forEach(dot =>
     dot.addEventListener('click', () => 
     {
         currentIndex = parseInt(dot.getAttribute('data-index'));
-        anim();
-    });
+        anim()
+    })
 });
 
 const startSlider = () => 
@@ -39,35 +39,35 @@ const startSlider = () =>
     sliderInterval = setInterval(() => 
     {
         currentIndex = (currentIndex === dots.length - 1) ? 0 : currentIndex + 1;
-        anim();
-    }, 3000);
+        anim()
+    }, 3000)
 }
 
 const pauseSlider = () => 
 {
-    clearInterval(sliderInterval);
-    document.querySelector('.Pause').style.display = 'none';
-    document.querySelector('.Resume').style.display = 'inline';
+    clearInterval(sliderInterval)
+    document.querySelector('.Pause').style.display = 'none'
+    document.querySelector('.Resume').style.display = 'inline'
 };  
 
 const resumeSlider = () => 
 {
-    document.querySelector('.Resume').style.display = 'none';
-    document.querySelector('.Pause').style.display = 'inline';
-    startSlider();
+    document.querySelector('.Resume').style.display = 'none'
+    document.querySelector('.Pause').style.display = 'inline'
+    startSlider()
 };
 
 document.querySelector('.Pause').addEventListener('click', () => 
 {
-    isPaused = true;
-    pauseSlider();
+    isPaused = true
+    pauseSlider()
 });
   
 document.querySelector('.Resume').addEventListener('click', () => 
 {
-    isPaused = false;
-    resumeSlider();
+    isPaused = false
+    resumeSlider()
 });
 
-startSlider();
-anim();
+startSlider()
+anim()
